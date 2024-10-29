@@ -1,6 +1,8 @@
 <?php
 include '../functions.php';
 
+if ($_SESSION['level'] == "user") return header('Location: tampilMahasiswa.php');
+
 $error = "";
 
 if (isset($_POST['insert'])) {

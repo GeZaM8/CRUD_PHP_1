@@ -5,6 +5,7 @@ if (!isset($_SESSION['user'])) return header('Location: ' . BASE_URL . 'login.ph
 $result = getAllMhs();
 
 if (isset($_GET['nim'])) {
+    if ($_SESSION['level'] == "user" || $_SESSION['level'] == 'operator') return header('Location: tampilMahasiswa.php');
     deleteMhs($_GET['nim']);
     header('Location: tampilMahasiswa.php');
 }

@@ -1,7 +1,11 @@
 <?php
 include '../functions.php';
 
+if ($_SESSION['level'] == "user") return header('Location: tampilMapel.php');
+
 $mpl = getMapelById($_GET['id_mapel']);
+
+if ($mpl == null) return header('Location: tampilMapel.php');
 
 if (isset($_POST['update'])) {
     if (updateMapel($_POST, $mpl['id_mapel']) > 0) {

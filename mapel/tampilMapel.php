@@ -5,6 +5,7 @@ if (!isset($_SESSION['user'])) return header('Location: ' . BASE_URL . 'login.ph
 $result = getAllMapel();
 
 if (isset($_GET['id_mapel'])) {
+    if ($_SESSION['level'] == "user" || $_SESSION['level'] == 'operator') return header('Location: tampilMapel.php');
     deleteMapel($_GET['id_mapel']);
     header('Location: tampilMapel.php');
 }

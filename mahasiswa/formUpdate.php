@@ -1,7 +1,11 @@
 <?php
 include '../functions.php';
 
+if ($_SESSION['level'] == "user") return header('Location: tampilMahasiswa.php');
+
 $mhs = getMhsByNim($_GET['nim']);
+
+if ($mhs == null) return header('Location: tampilMahasiswa.php');
 
 if (isset($_POST['update'])) {
     if (updateMhs($_POST, $mhs['nim']) > 0) {

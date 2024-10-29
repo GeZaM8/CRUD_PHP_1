@@ -1,6 +1,9 @@
 <?php
 include '../functions.php';
 
+if ($_SESSION['level'] == "user") return header('Location: tampilMapel.php');
+
+
 if (isset($_POST['insert'])) {
     if (insertMapel($_POST) > 0) {
         header('Location: tampilMapel.php');
